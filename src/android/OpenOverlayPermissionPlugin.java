@@ -80,14 +80,15 @@ public static CallbackContext mCallbackContext;
     }
 
     private void openOverlayPermission() {
+		// Check if operating system is MIUI
         if (isMiuiWithApi27OrMore()) {
+			// Open other permissions in MIUI
             goToXiaomiPermissions();
 
             return;
         }
+		// Open android 10 overlay permission
         else {
-            // Show alert dialog to the user saying a separate permission is needed
-            // Launch the settings activity if the user prefers
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + BuildConfig.APPLICATION_ID));
             cordova.setActivityResultCallback(this);

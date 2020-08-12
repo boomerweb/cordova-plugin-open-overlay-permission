@@ -1,0 +1,24 @@
+{
+  "name": "openoverlaypermissionplugin",
+  "version": "0.0.1",
+  "description": "Open Overlay Permission to handle overlay permission in android 10 and Xiaomi MIUI operating systems",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShayShaked/cordova-plugin-open-overlay-permission.git"
+  },
+  "keywords": [
+    "overlay",
+    "notification",
+    "ACTION_MANAGE_OVERLAY_PERMISSION"
+  ],
+  "author": "Shay Shaked",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShayShaked/cordova-plugin-open-overlay-permission/issues"
+  },
+  "homepage": "https://github.com/ShayShaked/cordova-plugin-open-overlay-permission#readme"
+}

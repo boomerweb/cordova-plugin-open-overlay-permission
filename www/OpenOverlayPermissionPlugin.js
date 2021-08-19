@@ -24,3 +24,5 @@ OpenOverlayPermissionPlugin.openOverlayPermission = function (options, successCa
   };
   
   cordova.addConstructor(OpenOverlayPermissionPlugin.install);
+
+module.exports = OpenOverlayPermissionPlugin;

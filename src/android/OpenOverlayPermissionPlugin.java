@@ -3,8 +3,6 @@ package cordova.plugin.openoverlaypermission;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 
-import leumit.mobile.BuildConfig;
-import leumit.mobile.MainActivity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,14 +13,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 
-import androidx.core.app.ActivityCompat;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import android.content.Context;
 import android.app.Activity;
-import leumit.mobile.MainActivity;
 import android.util.Log;
 /**
  * This class echoes a string called from JavaScript.
@@ -80,17 +75,16 @@ public static CallbackContext mCallbackContext;
     }
 
     private void openOverlayPermission() {
-		// Check if operating system is MIUI
         if (isMiuiWithApi27OrMore()) {
-			// Open other permissions in MIUI
             goToXiaomiPermissions();
 
             return;
         }
-		// Open android 10 overlay permission
         else {
+            // Show alert dialog to the user saying a separate permission is needed
+            // Launch the settings activity if the user prefers
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package:" + BuildConfig.APPLICATION_ID));
+                    Uri.parse("package:" + cordova.getActivity().getPackageName()));
             cordova.setActivityResultCallback(this);
             cordova.getActivity().startActivityForResult(intent, RequestCode);
             Log.i("LeumitMobile",  "****after cordova.startActivityForResult****");

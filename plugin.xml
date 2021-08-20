@@ -10,7 +10,9 @@
         <param name="android-package" value="cordova.plugin.openoverlaypermission.OpenOverlayPermissionPlugin" />
       </feature>
     </config-file>
-    <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    </config-file>
     <source-file src="src/android/OpenOverlayPermissionPlugin.java" target-dir="src/cordova.plugin.openoverlaypermission" />
   </platform>
 </plugin>

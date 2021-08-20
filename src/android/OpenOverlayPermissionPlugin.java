@@ -27,9 +27,6 @@ final Integer RequestCode = 9999;
 public static CallbackContext mCallbackContext;
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        Log.i("LeumitMobile",  "**** Build.VERSION.SDK_INT: " + Build.VERSION.SDK_INT + "****");
-        Log.i("LeumitMobile",  "**** Build.MANUFACTURER: " + Build.MANUFACTURER + "****");
-
         mCallbackContext = callbackContext;
 
         if (action.equals("openOverlayPermission")) {
@@ -87,7 +84,6 @@ public static CallbackContext mCallbackContext;
                     Uri.parse("package:" + cordova.getActivity().getPackageName()));
             cordova.setActivityResultCallback(this);
             cordova.getActivity().startActivityForResult(intent, RequestCode);
-            Log.i("LeumitMobile",  "****after cordova.startActivityForResult****");
         }
     }
 
@@ -119,7 +115,6 @@ public static CallbackContext mCallbackContext;
             }
         }
 
-        Log.i("LeumitMobile",  "getSystemProperty -> line: " + line);
         return line;
     }
 

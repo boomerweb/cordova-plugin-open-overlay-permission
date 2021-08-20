@@ -1,28 +1,17 @@
 var exec = require('cordova/exec');
 
-function OpenOverlayPermissionPlugin() {}
+var OpenOverlayPermissionPlugin = function () { };
 
 OpenOverlayPermissionPlugin.openOverlayPermission = function (options, successCallback, errorCallback) {
-    cordova.exec(successCallback, errorCallback, "OpenOverlayPermissionPlugin", "openOverlayPermission", options);
-  };
+  exec(successCallback, errorCallback, "OpenOverlayPermissionPlugin", "openOverlayPermission", options);
+};
 
-  OpenOverlayPermissionPlugin.canDrawOverlays = function (options, successCallback, errorCallback) {
-    cordova.exec(successCallback, errorCallback, "OpenOverlayPermissionPlugin", "canDrawOverlays", options);
-  };
+OpenOverlayPermissionPlugin.canDrawOverlays = function (options, successCallback, errorCallback) {
+  exec(successCallback, errorCallback, "OpenOverlayPermissionPlugin", "canDrawOverlays", options);
+};
 
-  OpenOverlayPermissionPlugin.isMIUI = function (options, successCallback, errorCallback) {
-    cordova.exec(successCallback, errorCallback, "OpenOverlayPermissionPlugin", "isMIUI", options);
-  };
-  
-  OpenOverlayPermissionPlugin.install = function () {
-    if (!window.plugins) {
-      window.plugins = {};
-    }
-  
-    window.plugins.OpenOverlayPermissionPlugin = new OpenOverlayPermissionPlugin();
-    return window.plugins.OpenOverlayPermissionPlugin;
-  };
-  
-  cordova.addConstructor(OpenOverlayPermissionPlugin.install);
+OpenOverlayPermissionPlugin.isMIUI = function (options, successCallback, errorCallback) {
+  exec(successCallback, errorCallback, "OpenOverlayPermissionPlugin", "isMIUI", options);
+};
 
 module.exports = OpenOverlayPermissionPlugin;
